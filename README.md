@@ -1,6 +1,20 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This application allows users to mark locations on the map and create advertisements with their information. The advertisements are saved to the local storage, and visible marks appear dynamically on the map sidebar.
+
+## Technologies Used
+
+- React
+- React-Leaflet
+- Redux Toolkit
+- Local Storage
+- Custom Hooks
+
+Features
+Map Interaction: Users can mark locations on the map.
+Advertisement Creation: Users can create advertisements with their information.
+Local Storage: Advertisements are saved to local storage for persistence.
+Dynamic Sidebar: The sidebar dynamically displays visible marks on the map.
 
 ## Available Scripts
 

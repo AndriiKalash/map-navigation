@@ -1,0 +1,38 @@
+.formContainer {
+  padding: 20px;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: normal;
+}
+.title {
+  height: 30px;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+.description {
+  height: 90px;
+  padding: 4px 4px;
+  outline: none;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+input {
+  padding: 2px 4px;
+  outline: none;
+}
+button {
+  max-width: 90px;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-size: medium;
+}
+img {
+  max-width: 200px;
+  height: 200px;
+}

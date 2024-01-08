@@ -1,0 +1,15 @@
+.liContainer {
+  list-style-type: none;
+  max-width: 160px;
+  height: 300px;
+  padding: 2px 5px;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  overflow-y: scroll;
+}
+
+.text {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  padding: 0 3px;
+}
