@@ -1,8 +1,13 @@
 import { MapContainer, TileLayer } from 'react-leaflet';
 import RenderMarker from '../marker/RenderMarker';
-import { MapEventHandler } from './MapEventHandler';
+import MapEventHandler from './MapEventHandler';
 import { useDispatch, useSelector } from 'react-redux';
-import { dataSelector, setCoordinates } from '../../redux/data/slice';
+import {
+  dataSelector,
+  getVisibleData,
+  setCoordinates,
+} from '../../redux/data/slice';
+import { getLSData } from '../../utils/getLSData';
 import 'leaflet/dist/leaflet.css';
 import styles from './Map.module.scss';
 
@@ -21,6 +26,17 @@ function MapComponent({ setPosition, formdata }) {
     dispatch(setCoordinates(newMarker));
   };
 
+  const updateVisibleMarkers = (map) => {
+    const bounds = map.getBounds();
+    const savedData = getLSData();
+    // if mark beyond the visible area, the visible key in obj is set to false:
+    const visibleData = savedData.map((data) => ({
+      ...data,
+      visible: bounds.contains(data.position),
+    }));
+    dispatch(getVisibleData(visibleData));
+  };
+
   return (
     <div>
       <MapContainer
@@ -35,7 +51,10 @@ function MapComponent({ setPosition, formdata }) {
         {coordinates.map((position, i) => (
           <RenderMarker key={i} position={position} popupData={fullData[i]} />
         ))}
-        <MapEventHandler onMapClick={handlePickPosition} />
+        <MapEventHandler
+          onMapClick={handlePickPosition}
+          onMoveMap={updateVisibleMarkers}
+        />
       </MapContainer>
     </div>
   );
